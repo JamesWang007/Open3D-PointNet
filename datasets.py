@@ -72,7 +72,7 @@ class PartDataset(data.Dataset):
         fn = self.datapath[index]
         cls = self.classes[self.datapath[index][0]]
         point_set = np.asarray(
-            open3d.read_point_cloud(fn[1], format='xyz').points,
+            open3d.io.read_point_cloud(fn[1], format='xyz').points,
             dtype=np.float32)
         seg = np.loadtxt(fn[2]).astype(np.int64)
         #print(point_set.shape, seg.shape)
